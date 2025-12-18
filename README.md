@@ -7,8 +7,8 @@ You can also change credentials in src/romaing.rs
 <br>
 <br>
 <h3>How to build and run</h3>
-Install https://github.com/esp-rs/esp-idf-svc and run the command:
-```
+Install https://github.com/esp-rs/esp-idf-svc and run the command: <br>
+```bash
 cargo espflash flash --monitor
 ```
 <br>
