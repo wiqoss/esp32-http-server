@@ -11,9 +11,9 @@ You can also change credentials in src/romaing.rs
 ### How to build and run
 Install [esp-idf-svc](https://github.com/esp-rs/esp-idf-svc) and run the command:
 
-`
+```
 cargo espflash flash --monitor
-`
+```
 
 ### Current routes
 For me LAN IP-Address is 192.168.71.1, I'm going to use it here.
