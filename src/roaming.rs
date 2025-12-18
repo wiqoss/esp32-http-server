@@ -6,6 +6,9 @@ use esp_idf_svc::nvs::{EspNvsPartition, NvsDefault};
 use esp_idf_svc::wifi::{AccessPointConfiguration, AuthMethod, Configuration, EspWifi};
 use crate::NETWORK_INITIALIZED;
 
+const SSID: &str = "ESP-32";
+const PASSWORD: &str = "12345678";
+
 pub fn start_roaming(modem: Modem,
                      sys_loop: EspSystemEventLoop,
                      nvs: EspNvsPartition<NvsDefault>,
@@ -18,13 +21,13 @@ pub fn start_roaming(modem: Modem,
 
     // Config
     let wifi_config = Configuration::AccessPoint(AccessPointConfiguration {
-        ssid: String::from("ESP32").parse().unwrap(),
+        ssid: SSID.parse().unwrap(),
         ssid_hidden: false,
         channel: 6,
         secondary_channel: None,
         protocols: Default::default(),
         auth_method: AuthMethod::WPA2Personal,
-        password: String::from("13201930").parse().unwrap(),
+        password: PASSWORD.parse().unwrap(),
         max_connections: 1,
     });
     wifi.set_configuration(&wifi_config).unwrap();

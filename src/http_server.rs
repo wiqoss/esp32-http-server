@@ -10,6 +10,10 @@ pub fn start() {
     // Create the server
     let mut server = EspHttpServer::new(&Configuration::default()).expect("Failed to create server");
 
+    server.fn_handler("/", Method::Get, |request| {
+        request.into_ok_response().unwrap().write_all(b"Server is running")
+    }).expect("Failed to response index request");
+
     server.fn_handler("/switch_light", Method::Get, |request| {
         // Reverse the current value
         DO_LIGHTING.store(
@@ -23,7 +27,7 @@ pub fn start() {
                 .into_bytes().
                 as_ref()
         )
-    }).unwrap();
+    }).expect("Failed to response /switch_light request");
 
     log::info!("HTTP Server started");
 
